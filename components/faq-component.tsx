@@ -127,11 +127,9 @@ const FaqComponent: React.FC = () => {
 };
 
 const FaqContainer = styled.div`
-    
     display: flex;
     flex-direction: column;
     gap: 40px;
-    background-color: #d1d5db;
     width: 100%;
     height: 500px;
     @media (min-width: 768px) { 
