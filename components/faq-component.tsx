@@ -32,18 +32,60 @@ const FaqComponent: React.FC = () => {
     ];
 
     const items = [
-        {
-            title: 'Accordion Item 1',
-            content: 'invygo is an in-app car subs serive allowing users to subscribe mnthely, yearly or even subscrie to own.\n\nWe believe that mobielity and access to a car should not be continegne ont paperwork and compilcated processes.',
-        },
-        {
-            title: 'Accordion Item 2',
-            content: 'Content of Accordion Item 2',
-        },
-        {
-            title: 'Accordion Item 3',
-            content: 'Content of Accordion Item 3',
-        },
+        [
+            {
+                title: 'Accordion Item 1',
+                content: 'invygo is an in-app car subs serive allowing users to subscribe mnthely, yearly or even subscrie to own.\n\nWe believe that mobielity and access to a car should not be continegne ont paperwork and compilcated processes.',
+            },
+            {
+                title: 'Accordion Item 2',
+                content: 'Content of Accordion Item 2',
+            },
+            {
+                title: 'Accordion Item 3',
+                content: 'Content of Accordion Item 3',
+            },
+        ],
+        [
+            {
+                title: 'Pricing Accordion Item 1',
+                content: 'Pricing content 1',
+            },
+            {
+                title: 'Pricing Accordion Item 2',
+                content: 'Pricing content 2',
+            },
+        ],
+        [
+            {
+                title: 'Documents Accordion Item 1',
+                content: 'Documents content 1',
+            },
+            {
+                title: 'Documents Accordion Item 2',
+                content: 'Documents content 2',
+            },
+            {
+                title: 'Documents Accordion Item 3',
+                content: 'Documents content 3',
+            },
+        ],
+        [
+            {
+                title: 'Delivery Accordion Item 1',
+                content: 'Delivery content 1',
+            },
+            {
+                title: 'Delivery Accordion Item 2',
+                content: 'Delivery content 2',
+            },
+        ],
+        [
+            {
+                title: 'Insurance Accordion Item 1',
+                content: 'Insurance content 1',
+            },
+        ],
     ];
 
     return (
@@ -54,16 +96,20 @@ const FaqComponent: React.FC = () => {
                     {linksArray.map((link, i) => (
                         <LinkItem
                             key={i}
-                            onClick={() => setSelected(i)}
+                            onClick={() => {
+                                setSelected(i);
+                                setSelectedIndex(null);
+                            }}
                             selected={i === selected}
                         >
                             {link.title}
                         </LinkItem>
                     ))}
+
                     <ViewAllButton>View all FAQ</ViewAllButton>
                 </LinksContainer>
                 <AccordionContainer>
-                    {items.map((item, index) => (
+                    {items[selected].map((item, index) => (
                         <AccordionItem key={index} open={selectedIndex === index}>
                             <AccordionTitle onClick={() => toggleItem(index)}>
                                 {item.title}
@@ -81,37 +127,57 @@ const FaqComponent: React.FC = () => {
 };
 
 const FaqContainer = styled.div`
-    padding: 40px 80px;
+    
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     background-color: #d1d5db;
     width: 100%;
     height: 500px;
+    @media (min-width: 768px) { 
+        padding: 40px 80px;
+        gap: 50px;
+    }
 `;
 
 const Content = styled.div`
     display: flex; 
-    justify-content: between; 
-    align-items: center;
+    justify-content: between;
+    flex-direction: column; 
     width: 100%;
-    
+    padding: 0px 20px;
+    @media (min-width: 768px) { 
+        flex-direction: row; 
+    }
 `
 
 const Heading = styled.h2`
     font-size: 2.25rem;
     line-height: 2.5rem; 
     font-weight: 700; 
-    letter-spacing: 0.05em; 
+    letter-spacing: 0.05em;
+    padding: 10px;
+    @media (min-width: 768px) { 
+        flex-direction: row; 
+    }
 `
 
 const LinksContainer = styled.div`
     display: flex;
-    align-items: start;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 50%;
-    height: fit;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1rem;
+    @media (min-width: 768px) { 
+        flex-direction: column; 
+        width: 50%;
+        gap: 0.5rem;
+        align-items: start;
+        height: fit;
+    }
+    white-space: nowrap; /* Ensures the items stay in a single line */
+    overflow-y: hidden; /* Hides vertical overflow */
+    -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS */
+    padding-bottom: 10px; /* Adds some space at the bottom for scroll bar */
 `;
 
 interface LinkItemProps {
@@ -123,25 +189,34 @@ const LinkItem = styled.div<LinkItemProps>`
     cursor: pointer;
     font-weight: ${({ selected }) => (selected ? 'bold' : 'light')};
     transition: all 0.3s;
-    margin-right: 10px;
+    @media (min-width: 768px) { 
+        margin-right: 10px;
+    }
 `;
 
 const ViewAllButton = styled.button`
     width: fit-content;
-    font-size: 1.25rem;
+    
     font-weight: bold;
     color: #3b82f6;
     border: none;
     background: none;
     cursor: pointer;
+    @media (min-width: 768px) {
+        font-size: 1.25rem;
+    }
 `;
 
 const AccordionContainer = styled.div`
-    width: 70%;
     overflow-y: auto;
-    width: calc(100% - 250px); /* Adjusted width for accordion container */
     overflow-y: auto;
-    max-height: 600px; /* Fixed height for accordion container */
+    max-height: 600px;
+    @media (min-width: 768px) { 
+        width: calc(100% - 250px);
+        width: 70%;
+        margin-top:0px;
+    }
+    margin-top:30px;
 `;
 
 interface AccordionItemProps {
@@ -167,7 +242,7 @@ const AccordionTitle = styled.div`
 `;
 
 const AccordionContent = styled.div`
-    padding: 10px 5px;
+    padding: 12px 5px;
     font-weight: 300;
     font-size: 0.875rem;
     line-height: 1.25rem;
