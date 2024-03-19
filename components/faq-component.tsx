@@ -34,7 +34,7 @@ const FaqComponent: React.FC = () => {
     const items = [
         {
             title: 'Accordion Item 1',
-            content: 'Content of Accordion Item 1 Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1',
+            content: 'invygo is an in-app car subs serive allowing users to subscribe mnthely, yearly or even subscrie to own.\n\nWe believe that mobielity and access to a car should not be continegne ont paperwork and compilcated processes.',
         },
         {
             title: 'Accordion Item 2',
@@ -84,9 +84,10 @@ const FaqContainer = styled.div`
     padding: 40px 80px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
     background-color: #d1d5db;
     width: 100%;
+    height: 500px;
 `;
 
 const Content = styled.div`
@@ -135,7 +136,11 @@ const ViewAllButton = styled.button`
 `;
 
 const AccordionContainer = styled.div`
-    width: 50%;
+    width: 70%;
+    overflow-y: auto;
+    width: calc(100% - 250px); /* Adjusted width for accordion container */
+    overflow-y: auto;
+    max-height: 600px; /* Fixed height for accordion container */
 `;
 
 interface AccordionItemProps {
@@ -165,6 +170,8 @@ const AccordionContent = styled.div`
     font-weight: 300;
     font-size: 0.875rem;
     line-height: 1.25rem;
+    max-height: 200px;
+    overflow-y: auto; 
 `;
 
 export default FaqComponent;
