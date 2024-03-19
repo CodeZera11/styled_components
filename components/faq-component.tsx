@@ -34,7 +34,7 @@ const FaqComponent: React.FC = () => {
     const items = [
         {
             title: 'Accordion Item 1',
-            content: 'Content of Accordion Item 1',
+            content: 'Content of Accordion Item 1 Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1Content of Accordion Item 1',
         },
         {
             title: 'Accordion Item 2',
@@ -66,10 +66,10 @@ const FaqComponent: React.FC = () => {
                     {items.map((item, index) => (
                         <AccordionItem key={index} open={selectedIndex === index}>
                             <AccordionTitle onClick={() => toggleItem(index)}>
-                                <span>
-                                    {item.title}
+                                {item.title}
+                                <span className='text-xl'>
+                                    {selectedIndex === index ? '-' : '+'}
                                 </span>
-                                {selectedIndex === index ? '-' : '+'}
                             </AccordionTitle>
                             <AccordionContent>{item.content}</AccordionContent>
                         </AccordionItem>
@@ -94,7 +94,7 @@ const Content = styled.div`
     justify-content: between; 
     align-items: center;
     width: 100%;
-
+    
 `
 
 const Heading = styled.h2`
@@ -138,27 +138,33 @@ const AccordionContainer = styled.div`
     width: 50%;
 `;
 
-const AccordionItem = styled.div`
-    border-bottom: 1px solid #ddd;
+interface AccordionItemProps {
+    open: boolean;
+}
+
+const AccordionItem = styled.div<AccordionItemProps>`
     overflow: hidden;
     max-height: ${({ open }) => (open ? '500px' : '50px')};
-    transition: max-height 0.1s ease-out;
+    transition: max-height 0.3s ease-in-out;
+    transition-duration: ${({ open }) => (open ? '0.3s' : '0.1s')}; /* Instant transition when opening, no transition when closing */
+    margin: 5px 0px;
 `;
 
 const AccordionTitle = styled.div`
-    padding: 10px 20px;
-    background-color: #f5f5f5;
+    padding: 5px 5px;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    font-size: 1rem;
+    line-height: 1.5rem;
 `;
 
 const AccordionContent = styled.div`
-    padding: 10px 20px;
+    padding: 10px 5px;
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
 `;
 
 export default FaqComponent;
-
-
