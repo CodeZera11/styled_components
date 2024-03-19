@@ -1,6 +1,7 @@
 'use client'
 
 import FaqComponent from "@/components/faq-component";
+import FooterComponent from "@/components/footer-component";
 import styled from "styled-components";
 
 const Title = styled.h1`
@@ -15,6 +16,9 @@ export default function Home() {
       </div>
       <div className="h-screen flex items-center justify-center">
         <FaqComponent />
+      </div>
+      <div className="h-screen flex items-center justify-center">
+        <FooterComponent />
       </div>
     </main>
   );
