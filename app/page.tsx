@@ -1,16 +1,21 @@
 'use client'
 
+import FaqComponent from "@/components/faq-component";
 import styled from "styled-components";
 
 const Title = styled.h1`
   color: red;
-  font-size: 12rem;
 `
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Title>Welcome to Next.js</Title>
+    <main className=" flex-col h-auto ">
+      <div className="h-screen flex items-center justify-center">
+        <Title>Welcome to Next.js</Title>
+      </div>
+      <div className="h-screen flex items-center justify-center">
+        <FaqComponent />
+      </div>
     </main>
   );
 }
