@@ -84,21 +84,30 @@ const textData = [
 ];
 
 const FooterContainer = styled.div`
-  height: 42rem;
-  width: 100%;
-  max-width: 100rem;
-  position: relative;
+    width: 100%;
+    height: 33rem;
+    
+    position: relative;
+    @media (min-width: 768px) { 
+        height: 42rem;
+    }
 `;
 
 const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 3px;
-    padding: 1rem;
+    padding: 2.5rem 1rem;
     position: relative;
     z-index: 40;
+    justify-content: flex-end;
+    height: 100%;
     @media (min-width: 768px) { 
         padding: 40px 100px;
+        justify-content: center;
+    }
+    @media (min-width: 1536px) {
+        justify-content: flex-end;
     }
 `;
 
@@ -148,23 +157,27 @@ const BackgroundImage = styled(Image)`
     overflow-x: hidden; 
     position: absolute; 
     z-index: 10; 
-    bottom: 17.8rem;
+    top: 0;
 `;
 
 const MainImage = styled(Image)`
-    position: absolute; 
+    position: absolute;
     right: 0; 
-    z-index: 20; 
+    z-index: 20;
     height: 8rem;
     width: 17rem;
-    bottom: 14rem;
-
-
+    top: 4.5rem;
     @media (min-width: 768px) { 
-        right: 8rem; 
-        bottom: 13rem; 
+        right: 3rem; 
         height: 15em;
         width: 33rem;
+        top: 22rem;
+    }
+    @media (min-width: 1536px) {
+        right: 8rem; 
+        height: 15em;
+        width: 33rem;
+        top: 30rem;
     }
 `;
 

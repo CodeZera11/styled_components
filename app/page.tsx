@@ -86,11 +86,11 @@ const items = [
 
 export default function Home() {
   return (
-    <main className=" flex-col h-auto ">
-      <div className="h-screen flex items-center justify-center font-light text-sm">
+    <main className="flex gap-32 flex-col h-auto">
+      <div className="flex items-center justify-center font-light text-sm">
         <Title>Welcome to Next.js</Title>
       </div>
-      <div className="h-screen flex items-center justify-center">
+      <div className=" flex items-center justify-center">
         <FaqComponent linksArray={linksArray} items={items} />
       </div>
       <div className="h-screen flex items-center justify-center">
