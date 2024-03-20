@@ -71,7 +71,7 @@ const textData = [
     {
         title: 'Car rental in the UAE',
         text:
-            'Renting a car in the UAE has never been more convenient: with invygo, drivers can now rent a car through a seamless process, simply using the invygo app! It is a hassle-free solution tailored to all lifestyles: whether looking for a car rental in Abu Dhabi, a budget car rental in Dubai or to rent a car in Sharjah, invygo has got you covered. The intuitive platform focuses on efficiency and simplicity: there is no paperwork or complicated process with invygo.',
+            'Renting a car in the UAE has never been more convenient: with invygo, drivers can now rent a car through a seamless process, simply using the invygo app! It is a hassle-free solution tailored to all lifestyles: whether looking for a car rental in Abu Dhabi, a budget car rental in Dubai or to rent a car in Sharjah, invygo has got you covered. The intuitive platform focuses on efficiency and simplicity: there is no paperwork or complicated process with invygo.Renting a car in the UAE has never been more convenient: with invygo, drivers can now rent a car through a seamless process, simply using the invygo app! It is a hassle-free solution tailored to all lifestyles: whether looking for a car rental in Abu Dhabi, a budget car rental in Dubai or to rent a car in Sharjah, invygo has got you covered. The intuitive platform focuses on efficiency and simplicity: there is no paperwork or complicated process with invygo.Renting a car in the UAE has never been more convenient: with invygo, drivers can now rent a car through a seamless process, simply using the invygo app! It is a hassle-free solution tailored to all lifestyles: whether looking for a car rental in Abu Dhabi, a budget car rental in Dubai or to rent a car in Sharjah, invygo has got you covered. The intuitive platform focuses on efficiency and simplicity: there is no paperwork or complicated process with invygo.',
     },
     {
         title: 'Second slide title',
@@ -119,7 +119,8 @@ const Title = styled.h4`
 
 const Text = styled.p`
     z-index: 40; 
-    height: 11.2rem; 
+    height: 11.2rem;
+    overflow-y: auto;
     font-size: 0.875rem;
     line-height: 1.25rem; 
     color: #6B7280; 
@@ -142,6 +143,7 @@ const NavigationContainer = styled.div`
     @media (min-width: 768px) { 
         margin-top: 4rem;
     }
+    
 `;
 
 const NavigationButton = styled.button`
