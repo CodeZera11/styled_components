@@ -1,6 +1,6 @@
 'use client'
 
-import FaqComponent from "@/components/faq-component";
+import FaqComponent, { FaqCategory } from "@/components/faq-component";
 import FooterComponent from "@/components/footer-component";
 import styled from "styled-components";
 
@@ -8,79 +8,91 @@ export interface Link {
   title: string;
 }
 
-const linksArray: Link[] = [
+const fakeFaqData: FaqCategory[] = [
   {
-    title: 'About invygo'
+    title: 'FAQ Category 1',
+    list: [
+      {
+        question: 'Question 1',
+        answer: 'Answer 1',
+      },
+      {
+        question: 'Question 2',
+        answer: 'Answer 2',
+      },
+      {
+        question: 'Question 3',
+        answer: 'Answer 3',
+      },
+      {
+        question: 'Question 4',
+        answer: 'Answer 4',
+      },
+    ],
   },
   {
-    title: 'Pricing'
+    title: 'FAQ Category 2',
+    list: [
+      {
+        question: 'Question 5',
+        answer: 'Answer 5',
+      },
+      {
+        question: 'Question 6',
+        answer: 'Answer 6',
+      },
+      {
+        question: 'Question 7',
+        answer: 'Answer 7',
+      },
+      {
+        question: 'Question 8',
+        answer: 'Answer 8',
+      },
+    ],
   },
   {
-    title: 'Documents and Requirements'
+    title: 'FAQ Category 3',
+    list: [
+      {
+        question: 'Question 9',
+        answer: 'Answer 9',
+      },
+      {
+        question: 'Question 10',
+        answer: 'Answer 10',
+      },
+      {
+        question: 'Question 11',
+        answer: 'Answer 11',
+      },
+      {
+        question: 'Question 12',
+        answer: 'Answer 12',
+      },
+    ],
   },
   {
-    title: 'Delivery and Service'
+    title: 'FAQ Category 4',
+    list: [
+      {
+        question: 'Question 13',
+        answer: 'Answer 13',
+      },
+      {
+        question: 'Question 14',
+        answer: 'Answer 14',
+      },
+      {
+        question: 'Question 15',
+        answer: 'Answer 15',
+      },
+      {
+        question: 'Question 16',
+        answer: 'Answer 16',
+      },
+    ],
   },
-  {
-    title: 'Insurance'
-  },
-];
-
-const items = [
-  [
-    {
-      title: 'Accordion Item 1',
-      content: 'invygo is an in-app car subs serive allowing users to subscribe mnthely, yearly or even subscrie to own.\n\nWe believe that mobielity and access to a car should not be continegne ont paperwork and compilcated processes.',
-    },
-    {
-      title: 'Accordion Item 2',
-      content: 'Content of Accordion Item 2',
-    },
-    {
-      title: 'Accordion Item 3',
-      content: 'Content of Accordion Item 3',
-    },
-  ],
-  [
-    {
-      title: 'Pricing Accordion Item 1',
-      content: 'Pricing content 1',
-    },
-    {
-      title: 'Pricing Accordion Item 2',
-      content: 'Pricing content 2',
-    },
-  ],
-  [
-    {
-      title: 'Documents Accordion Item 1',
-      content: 'Documents content 1',
-    },
-    {
-      title: 'Documents Accordion Item 2',
-      content: 'Documents content 2',
-    },
-    {
-      title: 'Documents Accordion Item 3',
-      content: 'Documents content 3',
-    },
-  ],
-  [
-    {
-      title: 'Delivery Accordion Item 1',
-      content: 'Delivery content 1',
-    },
-    {
-      title: 'Delivery Accordion Item 2',
-      content: 'Delivery content 2',
-    },
-  ],
-  [
-    {
-      title: 'Insurance Accordion Item 1',
-      content: 'Insurance content 1',
-    },
-  ],
 ];
 
 
@@ -91,7 +103,7 @@ export default function Home() {
         <Title>Welcome to Next.js</Title>
       </div>
       <div className=" flex items-center justify-center">
-        <FaqComponent linksArray={linksArray} items={items} />
+        <FaqComponent faqData={fakeFaqData} />
       </div>
       <div className="h-screen flex items-center justify-center">
         <FooterComponent />

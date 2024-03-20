@@ -2,21 +2,29 @@ import { Link } from '@/app/page';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-interface AccordionItemProps {
-    open: boolean;
-}
-
 interface LinkItemProps {
     selected: boolean;
 }
 
-interface Props {
-    linksArray: Link[]
-    items: { title: string, content: string }[][]
+interface AccordionItemProps {
+    open: boolean;
 }
 
-const FaqComponent = ({ linksArray, items }: Props) => {
+interface FaqItem {
+    question: string;
+    answer: string;
+}
 
+export interface FaqCategory {
+    title: string;
+    list: FaqItem[];
+}
+
+interface Props {
+    faqData: FaqCategory[];
+}
+
+const FaqComponent = ({ faqData }: Props) => {
     const [selected, setSelected] = useState<number>(0);
     const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
 
@@ -29,7 +37,7 @@ const FaqComponent = ({ linksArray, items }: Props) => {
             <Heading>FAQ</Heading>
             <Content>
                 <LinksContainer>
-                    {linksArray.map((link, i) => (
+                    {faqData.map((category, i) => (
                         <LinkItem
                             key={i}
                             onClick={() => {
@@ -38,21 +46,19 @@ const FaqComponent = ({ linksArray, items }: Props) => {
                             }}
                             selected={i === selected}
                         >
-                            {link.title}
+                            {category.title}
                         </LinkItem>
                     ))}
                     <ViewAllButton>View all FAQ</ViewAllButton>
                 </LinksContainer>
                 <AccordionContainer>
-                    {items[selected].map((item, index) => (
+                    {faqData[selected].list.map((item, index) => (
                         <AccordionItem key={index} open={selectedIndex === index}>
                             <AccordionTitle onClick={() => toggleItem(index)}>
-                                {item.title}
-                                <span>
-                                    {selectedIndex === index ? '-' : '+'}
-                                </span>
+                                {item.question}
+                                <span>{selectedIndex === index ? '-' : '+'}</span>
                             </AccordionTitle>
-                            <AccordionContent>{item.content}</AccordionContent>
+                            <AccordionContent>{item.answer}</AccordionContent>
                         </AccordionItem>
                     ))}
                 </AccordionContainer>
@@ -126,7 +132,7 @@ const LinkItem = styled.div<LinkItemProps>`
 
 const ViewAllButton = styled.button`
     width: fit-content;
-    
+    margin-top: 0.5rem;
     font-weight: bold;
     color: #3b82f6;
     border: none;
