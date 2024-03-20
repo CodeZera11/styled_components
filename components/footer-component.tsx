@@ -127,11 +127,14 @@ const Text = styled.p`
 `;
 
 const NavigationContainer = styled.div`
-  margin-top: 1.57rem;
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  z-index: 40;
+    margin-top: 1.57rem;
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    z-index: 40;
+    @media (min-width: 768px) { 
+        margin-top: 4rem;
+    }
 `;
 
 const NavigationButton = styled.button`
