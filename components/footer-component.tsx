@@ -67,8 +67,6 @@ const FooterComponent = () => {
     );
 };
 
-export default FooterComponent;
-
 const textData = [
     {
         title: 'Car rental in the UAE',
@@ -169,3 +167,5 @@ const MainImage = styled(Image)`
         width: 33rem;
     }
 `;
+
+export default FooterComponent;
