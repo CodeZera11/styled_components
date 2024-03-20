@@ -105,7 +105,6 @@ const FaqComponent: React.FC = () => {
                             {link.title}
                         </LinkItem>
                     ))}
-
                     <ViewAllButton>View all FAQ</ViewAllButton>
                 </LinksContainer>
                 <AccordionContainer>
@@ -113,7 +112,7 @@ const FaqComponent: React.FC = () => {
                         <AccordionItem key={index} open={selectedIndex === index}>
                             <AccordionTitle onClick={() => toggleItem(index)}>
                                 {item.title}
-                                <span className='text-xl'>
+                                <span>
                                     {selectedIndex === index ? '-' : '+'}
                                 </span>
                             </AccordionTitle>
@@ -131,6 +130,7 @@ const FaqContainer = styled.div`
     flex-direction: column;
     gap: 40px;
     width: 100%;
+    max-width: 80rem;
     height: 500px;
     @media (min-width: 768px) { 
         padding: 40px 80px;
@@ -153,8 +153,8 @@ const Heading = styled.h2`
     font-size: 2.25rem;
     line-height: 2.5rem; 
     font-weight: 700; 
-    letter-spacing: 0.05em;
-    padding: 10px;
+    letter-spacing: 0.05em; 
+    padding: 0px 20px;
     @media (min-width: 768px) { 
         flex-direction: row; 
     }
