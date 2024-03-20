@@ -112,7 +112,7 @@ const Title = styled.h4`
 
 const Text = styled.p`
     z-index: 40; 
-    height: auto; 
+    height: 11.2rem; 
     font-size: 0.875rem;
     line-height: 1.25rem; 
     color: #6B7280; 
@@ -122,7 +122,7 @@ const Text = styled.p`
         width: 40%;
     }
     @media (min-width: 1536px) { 
-        height: 8rem; 
+        height: 12rem; 
     }
 `;
 
